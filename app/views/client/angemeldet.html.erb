@@ -1,0 +1,112 @@
+<div class="container">
+  <h2>Hallo <%= Rails.cache.read('login') %>! Wähle eine Funktion:</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#empfangen">Nachricht empfangen</a></li>
+    <li><a href="#schreiben">Nachricht schreiben</a></li>
+    <li><a href="#account">Account</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="empfangen" class="tab-pane fade in active">
+      <br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4" id="black">
+
+            <%= button_to 'Aktuellste Nachricht abholen', 'nachricht_abholen', method: 'get', data: {authenticity_token: false} %>
+
+          </div>
+
+          <div class="col-sm-4" id="black">
+
+            <%= button_to 'Alle Nachrichten abholen', 'nachrichten_abholen', method: 'get', data: {authenticity_token: false} %>
+
+          </div>
+
+          <div class="col-sm-4" id="black">
+
+            <%= button_to 'Alle Nachrichten löschen', 'destroy_all', method: 'get', data: {confirm: 'Wirklich alle Nachrichten vom Server löschen?', authenticity_token: false} %>
+
+          </div>
+        </div>
+       </div>
+
+
+      <% if @response == 'null' %>
+
+          <%= render partial: 'client/keine_nachrichten' %>
+
+      <% else %>
+
+          <% if @response != nil %>
+
+              <%= render partial: 'client/neue_nachrichten', locals: {i: @response}%>
+
+          <% end %>
+
+          <% if @responses != nil %>
+
+              <% @responses.each do |i| %>
+
+                  <%= render partial: 'client/neue_nachrichten', locals: {i: i}  %>
+
+              <% end %>
+
+          <% end %>
+
+          <% if @responses == [] %>
+
+              <%= render partial: 'client/keine_nachrichten' %>
+
+          <% end %>
+      <% end %>
+
+    </div>
+    <div id="schreiben" class="tab-pane fade">
+      <h3>Neue Nachricht</h3>
+      <p><%= form_tag('/nachricht_schicken', method: 'get', class:'form-horizontal', authenticity_token: false) do %>
+
+          <div class="form-group">
+            <label class="control-label col-sm-1"><i class="fa fa-user" aria-hidden="true"></i></label>
+            <div class="col-sm-4">
+              <%= text_field_tag(:recipient, '', class: 'form-control', placeholder:'Empfänger') %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-1"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+            <div class="col-sm-4">
+              <%= text_area_tag(:msg, '', class: 'form-control', placeholder:'Nachricht', rows:'5', id:'comment', type:'textarea') %>
+            </div>
+          </div>
+
+          <%= submit_tag('Abschicken', id:'black') %>
+
+      <% end %>
+
+    </div>
+
+    <div id="account" class="tab-pane fade">
+      <h3>Account löschen</h3>
+    <div id="black">
+      <%= button_to 'Account löschen', 'destroy_user', method: 'get', data: {confirm: 'Möchtest du wirklich deinen Account löschen? Alle erhaltenen Nachrichten gehen verloren!', authenticity_token: false} %>
+
+    </div>
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+  });
+
+</script>
