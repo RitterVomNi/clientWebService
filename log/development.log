@@ -8974,3 +8974,238 @@ Completed 200 OK in 93ms (Views: 92.8ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/assets/application.self-72bfeac87bdd45c95d6768d3d5b7cee9a97bc75de451da51c6d6d0ee49f77bb9.css?body=1" for 127.0.0.1 at 2016-06-30 22:48:50 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:24:08 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 1387ms (Views: 1364.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/client.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-07-01 07:24:10 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-07-01 07:24:10 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-07-01 07:24:10 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-07-01 07:24:10 +0200
+
+
+Started GET "/assets/bootstrap.min.self-d9d90674455a7dd0e4cb2931b75e981881fb75339f0b659cdd50e2f35b79e7e2.js?body=1" for 127.0.0.1 at 2016-07-01 07:24:10 +0200
+
+
+Started GET "/assets/back-cc5a55a559eaa17e94961ec059b263f00e1bebf1e0db7b0e7c6c0c105e7bab50.jpg" for 127.0.0.1 at 2016-07-01 07:24:10 +0200
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:24:18 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Test", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 332ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:24:50 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Matthias", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 248ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:25:41 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 967ms (Views: 956.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:25:42 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 236ms (Views: 234.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:25:48 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Matthias", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 97181ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register_server?utf8=%E2%9C%93&login=Testx&pass=1234&commit=Registrieren" for 127.0.0.1 at 2016-07-01 07:27:25 +0200
+Processing by ClientController#register_server as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx", "pass"=>"1234", "commit"=>"Registrieren"}
+Redirected to http://localhost:10254/
+Completed 302 Found in 316ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:27:32 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 955ms (Views: 944.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:27:41 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx2", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 419ms (Views: 230.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register_server?utf8=%E2%9C%93&login=Testx3&pass=1234&commit=Registrieren" for 127.0.0.1 at 2016-07-01 07:27:48 +0200
+Processing by ClientController#register_server as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx3", "pass"=>"1234", "commit"=>"Registrieren"}
+Redirected to http://localhost:10254/
+Completed 302 Found in 602ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:27:49 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 214ms (Views: 212.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:28:04 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx3", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/angemeldet.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 744ms (Views: 502.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachricht_abholen" for 127.0.0.1 at 2016-07-01 07:28:07 +0200
+Processing by ClientController#nachricht_abholen as HTML
+  Rendered client/_keine_nachrichten.html.erb (0.3ms)
+  Rendered client/angemeldet.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 296ms (Views: 84.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachricht_schicken?utf8=%E2%9C%93&recipient=Testx3&msg=1234&commit=Abschicken" for 127.0.0.1 at 2016-07-01 07:28:15 +0200
+Processing by ClientController#nachricht_schicken as HTML
+  Parameters: {"utf8"=>"✓", "recipient"=>"Testx3", "msg"=>"1234", "commit"=>"Abschicken"}
+  Rendered client/angemeldet.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 470ms (Views: 72.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachricht_abholen" for 127.0.0.1 at 2016-07-01 07:28:18 +0200
+Processing by ClientController#nachricht_abholen as HTML
+  Rendered client/_neue_nachrichten.html.erb (23.7ms)
+  Rendered client/angemeldet.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 475ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/chat_kl-c9d55c4c9585884f3f42cb35424a6bd366a59d8974f85f8ab7c2cd7853537dae.jpg" for 127.0.0.1 at 2016-07-01 07:28:19 +0200
+
+
+Started GET "/logout" for 127.0.0.1 at 2016-07-01 07:28:21 +0200
+Processing by ClientController#logout as HTML
+Redirected to http://localhost:10254/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:28:21 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 53ms (Views: 52.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register_server?utf8=%E2%9C%93&login=Testx4&pass=1234&commit=Registrieren" for 127.0.0.1 at 2016-07-01 07:28:29 +0200
+Processing by ClientController#register_server as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx4", "pass"=>"1234", "commit"=>"Registrieren"}
+Redirected to http://localhost:10254/
+Completed 302 Found in 300ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:28:30 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 65ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:28:37 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx4", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/angemeldet.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 273ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachricht_schicken?utf8=%E2%9C%93&recipient=Testx3&msg=1111&commit=Abschicken" for 127.0.0.1 at 2016-07-01 07:28:44 +0200
+Processing by ClientController#nachricht_schicken as HTML
+  Parameters: {"utf8"=>"✓", "recipient"=>"Testx3", "msg"=>"1111", "commit"=>"Abschicken"}
+  Rendered client/angemeldet.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 434ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2016-07-01 07:28:46 +0200
+Processing by ClientController#logout as HTML
+Redirected to http://localhost:10254/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-01 07:28:46 +0200
+Processing by ClientController#index as HTML
+  Rendered client/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 59ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angemeldet" for 127.0.0.1 at 2016-07-01 07:28:51 +0200
+Processing by ClientController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "login"=>"Testx3", "pass"=>"1234", "commit"=>"Anmelden"}
+Can't verify CSRF token authenticity
+  Rendered client/angemeldet.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 422ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachricht_abholen" for 127.0.0.1 at 2016-07-01 07:28:52 +0200
+Processing by ClientController#nachricht_abholen as HTML
+  Rendered client/_neue_nachrichten.html.erb (0.8ms)
+  Rendered client/angemeldet.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 434ms (Views: 62.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachrichten_abholen" for 127.0.0.1 at 2016-07-01 07:28:54 +0200
+Processing by ClientController#nachrichten_abholen as HTML
+  Rendered client/_neue_nachrichten.html.erb (0.7ms)
+  Rendered client/_neue_nachrichten.html.erb (0.5ms)
+  Rendered client/angemeldet.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 627ms (Views: 66.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroy_single?id=129" for 127.0.0.1 at 2016-07-01 07:28:59 +0200
+Processing by ClientController#destroy_single as HTML
+  Parameters: {"authenticity_token"=>"aj0bQbiyl5fZlYlo3e6OZVWY1557ZTrj2YW2Qtg0P2N9w10+yWV1hBDFaSt1sJQwdDa4knsyM4HiTKSxd6ZqzA==", "id"=>"129"}
+  Rendered client/angemeldet.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 251ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachricht_abholen" for 127.0.0.1 at 2016-07-01 07:29:01 +0200
+Processing by ClientController#nachricht_abholen as HTML
+  Rendered client/_neue_nachrichten.html.erb (0.7ms)
+  Rendered client/angemeldet.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 439ms (Views: 62.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachrichten_abholen" for 127.0.0.1 at 2016-07-01 07:29:03 +0200
+Processing by ClientController#nachrichten_abholen as HTML
+  Rendered client/_neue_nachrichten.html.erb (0.7ms)
+  Rendered client/angemeldet.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 443ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroy_all" for 127.0.0.1 at 2016-07-01 07:29:05 +0200
+Processing by ClientController#destroy_all as HTML
+  Rendered client/angemeldet.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 253ms (Views: 59.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nachrichten_abholen" for 127.0.0.1 at 2016-07-01 07:29:06 +0200
+Processing by ClientController#nachrichten_abholen as HTML
+  Rendered client/_keine_nachrichten.html.erb (0.1ms)
+  Rendered client/angemeldet.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 253ms (Views: 61.0ms | ActiveRecord: 0.0ms)
