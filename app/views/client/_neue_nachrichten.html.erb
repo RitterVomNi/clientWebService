@@ -1,18 +1,15 @@
 <br>
 <div class="panel pcool" id="shadow">
   <div class="panel-heading chathead" id="chath">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-11">Von: <%= i[0] %> </div>
-
-        <div class="col-sm-1">
+      <div class="row" style="margin-left: 8px">
+        Von: <%= i[0] %>
+        <div style="float: right; margin-right: 10px">
           <%= link_to "", destroy_single_path(id: i[2]), method: :get, data: {confirm: "Willst du diese Nachricht wirklich löschen?"},
                       class: "fa fa-trash-o", style: "color:red" %></div>
       </div>
-      <div class="row">
-        <div class="col-sm-12">Verschickt am <%= i[3].strftime("%d.%m.%Y") %> um <%= i[3].strftime("%H:%M:%S") %> </div>
+      <div class="row" style="margin-left: 8px">
+        Verschickt am <%= i[3].strftime("%d.%m.%Y") %> um <%= i[3].strftime("%H:%M:%S") %>
       </div>
-    </div>
   </div>
   <div class="panel-body chat" id="chatt"><%= simple_format(i[1]) %></div>
 </div>

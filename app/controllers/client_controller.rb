@@ -98,7 +98,9 @@ class ClientController < ApplicationController
 
 
       key_recipient = SecureRandom.hex(16)
-      iv = SecureRandom.hex(16)
+     # iv = SecureRandom.hex(16)
+      iv = SecureRandom.random_bytes(16)
+
 
       cipher = OpenSSL::Cipher.new 'AES-128-CBC'
       cipher.encrypt
@@ -128,6 +130,7 @@ class ClientController < ApplicationController
       hash_data2 = Rails.cache.read('login')+content_enc64+iv+key_recipient_enc64+sig_recipient64+timestamp.to_s+params[:recipient]
       sig_service = privkey_user.sign digest, hash_data2
       sig_service64 = Base64.encode64(sig_service)
+      iv = Base64.encode64(iv)
 
     rescue
       flash[:alert] = 'User nicht gefunden'
@@ -166,9 +169,16 @@ class ClientController < ApplicationController
     pubkey_user = OpenSSL::PKey::RSA.new(pub_key[:pubkey_user])
 
     check = false
+
     begin
-      pubkey_user.public_decrypt(Base64.decode64(@response[:sig_recipient]))
-      check = true
+
+      digest = OpenSSL::Digest::SHA256.new
+
+      hash_data = @response[:sender]+@response[:content_enc]+@response[:iv]+@response[:key_recipient_enc]
+      bla = Base64.decode64(@response[:sig_recipient])
+
+      check = pubkey_user.verify(digest, bla, hash_data)
+
     rescue
 
     end
@@ -224,6 +234,13 @@ class ClientController < ApplicationController
 
       check = false
       begin
+
+     #   digest = OpenSSL::Digest::SHA256.new
+     #   hash_data = i[:sender]+i[:content_enc]+i[:iv]+i[:key_recipient_enc]
+     #   bla = Base64.decode64(i[:sig_recipient])
+     #   check = pubkey_user.verify(digest, bla, hash_data)
+
+
         pubkey_user.public_decrypt(Base64.decode64(i[:sig_recipient]))
         check = true
       rescue
@@ -232,14 +249,14 @@ class ClientController < ApplicationController
       return head 404 unless check
 
       privkey_user = OpenSSL::PKey::RSA.new(Rails.cache.read('priv_key'))
+
       key_recipient = privkey_user.private_decrypt(Base64.decode64(i[:key_recipient_enc]))
 
 
       cipher = OpenSSL::Cipher.new 'AES-128-CBC'
       cipher.decrypt
       cipher.key = key_recipient
-      cipher.iv = i[:iv]
-
+      cipher.iv = Base64.decode64(i[:iv])
       content = cipher.update(Base64.decode64(i[:content_enc])) + cipher.final
 
       ausgabe.push [i[:sender], content, i[:id], i[:created_at].to_time]

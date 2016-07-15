@@ -1,4 +1,4 @@
-<div class="container">
+
   <h2>Hallo <%= Rails.cache.read('login') %>! Wähle eine Funktion:</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a href="#empfangen">Nachricht empfangen</a></li>
@@ -10,27 +10,28 @@
     <div id="empfangen" class="tab-pane fade in active">
       <br>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4" id="black">
 
-            <%= button_to 'Aktuellste Nachricht abholen', 'nachricht_abholen', method: 'get', data: {authenticity_token: false} %>
+      <div class="row">
+        <div class="col-sm-4" id="black">
 
-          </div>
+          <%= button_to 'Letzte Nachricht abholen', 'nachricht_abholen', method: 'get', data: {authenticity_token: false} %>
 
-          <div class="col-sm-4" id="black">
-
-            <%= button_to 'Alle Nachrichten abholen', 'nachrichten_abholen', method: 'get', data: {authenticity_token: false} %>
-
-          </div>
-
-          <div class="col-sm-4" id="black">
-
-            <%= button_to 'Alle Nachrichten löschen', 'destroy_all', method: 'get', data: {confirm: 'Wirklich alle Nachrichten vom Server löschen?', authenticity_token: false} %>
-
-          </div>
         </div>
-       </div>
+
+        <div class="col-sm-4" id="black">
+
+          <%= button_to 'Alle Nachrichten abholen', 'nachrichten_abholen', method: 'get', data: {authenticity_token: false} %>
+
+        </div>
+
+        <div class="col-sm-4" id="black">
+
+          <%= button_to 'Alle Nachrichten löschen', 'destroy_all', method: 'get', data: {confirm: 'Wirklich alle Nachrichten vom Server löschen?', authenticity_token: false} %>
+
+        </div>
+      </div>
+
+
 
 
       <% if @response == 'null' %>
@@ -100,7 +101,7 @@
 
   </div>
 
-</div>
+
 
 <script>
   $(document).ready(function(){
