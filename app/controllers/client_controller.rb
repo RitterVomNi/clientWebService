@@ -122,10 +122,12 @@ class ClientController < ApplicationController
       digest = OpenSSL::Digest::SHA256.new
 
       hash_data = Rails.cache.read('login')+content_enc64+iv+key_recipient_enc64
+      #hash_data = "Das wird nicht funktionieren"
       sig_recipient = privkey_user.sign digest, hash_data
       sig_recipient64 = Base64.encode64(sig_recipient)
 
       timestamp =  Time.now.to_i
+      #timestamp = 10000
 
       hash_data2 = Rails.cache.read('login')+content_enc64+iv+key_recipient_enc64+sig_recipient64+timestamp.to_s+params[:recipient]
       sig_service = privkey_user.sign digest, hash_data2
@@ -174,7 +176,7 @@ class ClientController < ApplicationController
 
       digest = OpenSSL::Digest::SHA256.new
 
-      hash_data = @response[:sender]+@response[:content_enc]+@response[:iv]+@response[:key_recipient_enc]
+      hash_data = @response[:sender]+@response[:content_enc]+Base64.decode64(@response[:iv])+@response[:key_recipient_enc]
       bla = Base64.decode64(@response[:sig_recipient])
 
       check = pubkey_user.verify(digest, bla, hash_data)
@@ -183,7 +185,7 @@ class ClientController < ApplicationController
 
     end
 
-    return head 404 unless check
+    return render :file => "#{Rails.root}/public/404" unless check
 
     privkey_user = OpenSSL::PKey::RSA.new(Rails.cache.read('priv_key'))
     key_recipient = privkey_user.private_decrypt(Base64.decode64(@response[:key_recipient_enc]))
@@ -192,7 +194,7 @@ class ClientController < ApplicationController
     cipher = OpenSSL::Cipher.new 'AES-128-CBC'
     cipher.decrypt
     cipher.key = key_recipient
-    cipher.iv = @response[:iv]
+    cipher.iv = Base64.decode64(@response[:iv])
 
     content = cipher.update(Base64.decode64(@response[:content_enc])) + cipher.final
 
